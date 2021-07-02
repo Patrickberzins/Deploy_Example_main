@@ -1,0 +1,22 @@
+<!--users/templates/users/register.html-->
+
+{% extends 'base.html' %}
+
+<!-- So we can use Bootstrap integration with Django -->
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+<h2>Register</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <!--{{form}} -->
+    <input type="submit" value="Register">
+</form>
+
+<a href="{% url 'login' %}">Back to login</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- templates/email.html -->
+
+<!-- So we can use images from the static folder -->
+{% load static %}
+
+<!-- So we can use Bootstrap integration with Django -->
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!-- Our page -->
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h1 class="float-left">Contact Us</h1>
+      <img class="float-right" src="{% static 'logo.png' %}">
+    </div>
+  </div>
+
+  <div class="row">  
+    <div class="col">
+      <form method="post" class="form">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          
+          {% buttons %}
+          <button type="submit" class="btn btn-primary">Send</button>
+          {% endbuttons %}
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,23 @@
+<!--users/templates/registration/login.html-->
+<!--  TO USE DJANGO LOGIN THIS PAGE HAVE TO BE INSIDE TFOLDER REGISTRATION, INSIDE TEMPLATE -->
+{% extends 'base.html' %}
+
+<!-- So we can use Bootstrap integration with Django -->
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+<h2>Login</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <!-- {{ form.as_p }} -->
+    <input type="submit" value="Login">
+</form>
+
+<a href="{% url 'dashboard' %}">Back to dashboard         </a>
+<a href="{% url 'register' %}">Register</a>
+{% endblock %}

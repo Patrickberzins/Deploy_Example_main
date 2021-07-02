@@ -1,0 +1,26 @@
+<!-- templates/email.html -->
+
+<!-- So we can use images from the static folder -->
+{% load static %}
+
+<!-- So we can use Bootstrap integration with Django -->
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!-- Our page -->
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h1 class="float-left">Welcome to SE Basics at BC</h1>
+      <img class="float-right" src="{% static 'logo.png' %}">
+    </div>
+  </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
